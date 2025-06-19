@@ -421,428 +421,431 @@
     </div>
 
     <script>
-        // Vocabulary data (tanpa level kesulitan)
-const vocabulary = [
-    // Kata Kerja
-    {japanese: "おきます", romaji: "okimasu", meaning: "bangun"},
-    {japanese: "ねます", romaji: "nemasu", meaning: "tidur"},
-    {japanese: "はじめます", romaji: "hajimemasu", meaning: "memulai"},
-    {japanese: "おわります", romaji: "owarimasu", meaning: "selesai"},
-    {japanese: "がんばります", romaji: "ganbarimasu", meaning: "bersemangat"}, // Corrected romaji
-    {japanese: "はたらきます", romaji: "hatarakimasu", meaning: "bekerja"},
-    {japanese: "かけます", romaji: "kakemasu", meaning: "menggantung"},
-    {japanese: "べんきょうします", romaji: "benkyou shimasu", meaning: "belajar"},
-    {japanese: "いきます", romaji: "ikimasu", meaning: "pergi"},
-    {japanese: "きます", romaji: "kimasu", meaning: "datang"},
-    {japanese: "かえります", romaji: "kaerimasu", meaning: "pulang"},
-    {japanese: "あいます", romaji: "aimasu", meaning: "bertemu"},
-    {japanese: "やすみをとります", romaji: "yasumi wo torimasu", meaning: "cuti"},
-    {japanese: "つとめます", romaji: "tsutomemasu", meaning: "bekerja (formal) / bertugas"},
-    {japanese: "たべます", romaji: "tabemasu", meaning: "makan"},
-    {japanese: "のみます", romaji: "nomimasu", meaning: "minum"},
-    {japanese: "わかります", romaji: "wakarimasu", meaning: "mengerti"},
-    {japanese: "みます", romaji: "mimasu", meaning: "melihat"},
-    {japanese: "ききます", romaji: "kikimasu", meaning: "mendengar"},
-    {japanese: "よみます", romaji: "yomimasu", meaning: "membaca"},
-    {japanese: "かきます", romaji: "kakimasu", meaning: "menulis"},
-    {japanese: "かいます", romaji: "kaimasu", meaning: "membeli"},
-    {japanese: "こたえます", romaji: "kotaemasu", meaning: "menjawab"},
-    {japanese: "あげます", romaji: "agemasu", meaning: "memberi"},
-    {japanese: "もらいます", romaji: "moraimasu", meaning: "menerima"},
-    {japanese: "かします", romaji: "kashimasu", meaning: "meminjamkan"},
-    {japanese: "かります", romaji: "karimasu", meaning: "meminjam"},
-    {japanese: "おしえます", romaji: "oshiemasu", meaning: "belajar (dari orang lain)"},
-    {japanese: "はいります", romaji: "hairimasu", meaning: "masuk"},
-    {japanese: "でます", romaji: "demasu", meaning: "keluar"},
-    {japanese: "でんわをかけます", romaji: "denwa wo kakemasu", meaning: "menelepon"},
-    {japanese: "います", romaji: "imasu", meaning: "ada (makhluk hidup)"},
-    {japanese: "あります", romaji: "arimasu", meaning: "ada (benda mati)"},
-    {japanese: "かかります", romaji: "kakarimasu", meaning: "memakan waktu"},
-    {japanese: "けっこんします", romaji: "kekkon shimasu", meaning: "menikah"},
-    {japanese: "かいものします", romaji: "kaimono shimasu", meaning: "berbelanja"},
+    // Vocabulary data (tanpa level kesulitan)
+    const vocabulary = [
+        // Kata Kerja
+        {japanese: "おきます", romaji: "okimasu", meaning: "bangun"},
+        {japanese: "ねます", romaji: "nemasu", meaning: "tidur"},
+        {japanese: "はじめます", romaji: "hajimemasu", meaning: "memulai"},
+        {japanese: "おwaります", romaji: "owarimasu", meaning: "selesai"},
+        {japanese: "がんばります", romaji: "ganbarimasu", meaning: "bersemangat"}, // Corrected romaji
+        {japanese: "はたらきます", romaji: "hatarakimasu", meaning: "bekerja"},
+        {japanese: "かけます", romaji: "kakemasu", meaning: "menggantung"},
+        {japanese: "べんきょうします", romaji: "benkyou shimasu", meaning: "belajar"},
+        {japanese: "いきます", romaji: "ikimasu", meaning: "pergi"},
+        {japanese: "きます", romaji: "kimasu", meaning: "datang"},
+        {japanese: "かえります", romaji: "kaerimasu", meaning: "pulang"},
+        {japanese: "あいます", romaji: "aimasu", meaning: "bertemu"},
+        {japanese: "やすみをとります", romaji: "yasumi wo torimasu", meaning: "cuti"},
+        {japanese: "つとめます", romaji: "tsutomemasu", meaning: "bekerja (formal) / bertugas"},
+        {japanese: "たべます", romaji: "tabemasu", meaning: "makan"},
+        {japanese: "のみます", romaji: "nomimasu", meaning: "minum"},
+        {japanese: "わかります", romaji: "wakarimasu", meaning: "mengerti"},
+        {japanese: "みます", romaji: "mimasu", meaning: "melihat"},
+        {japanese: "ききます", romaji: "kikimasu", meaning: "mendengar"},
+        {japanese: "よみます", romaji: "yomimasu", meaning: "membaca"},
+        {japanese: "かきます", romaji: "kakimasu", meaning: "menulis"},
+        {japanese: "かいます", romaji: "kaimasu", meaning: "membeli"},
+        {japanese: "こたえます", romaji: "kotaemasu", meaning: "menjawab"},
+        {japanese: "あげます", romaji: "agemasu", meaning: "memberi"},
+        {japanese: "もらいます", romaji: "moraimasu", meaning: "menerima"},
+        {japanese: "かします", romaji: "kashimasu", meaning: "meminjamkan"},
+        {japanese: "かります", romaji: "karimasu", meaning: "meminjam"},
+        {japanese: "おしえます", romaji: "oshiemasu", meaning: "belajar (dari orang lain)"},
+        {japanese: "はいります", romaji: "hairimasu", meaning: "masuk"},
+        {japanese: "でます", romaji: "demasu", meaning: "keluar"},
+        {japanese: "でんわをかけます", romaji: "denwa wo kakemasu", meaning: "menelepon"},
+        {japanese: "います", romaji: "imasu", meaning: "ada (makhluk hidup)"},
+        {japanese: "あります", romaji: "arimasu", meaning: "ada (benda mati)"},
+        {japanese: "かかります", romaji: "kakarimasu", meaning: "memakan waktu"},
+        {japanese: "けっこんします", romaji: "kekkon shimasu", meaning: "menikah"},
+        {japanese: "かいものします", romaji: "kaimono shimasu", meaning: "berbelanja"},
 
-    // Kata Sifat
-    {japanese: "きれいな", romaji: "kirei na", meaning: "cantik"},
-    {japanese: "げんきな", romaji: "genki na", meaning: "sehat"},
-    {japanese: "しんせつな", romaji: "shinsetsu na", meaning: "baik hati"},
-    {japanese: "ゆうめいな", romaji: "yuumei na", meaning: "terkenal"},
-    {japanese: "にぎやかな", romaji: "nigiyaka na", meaning: "ramai"},
-    {japanese: "しずかな", romaji: "shizuka na", meaning: "tenang"},
-    {japanese: "たのしい", romaji: "tanoshii", meaning: "menyenangkan"},
-    {japanese: "おおきい", romaji: "ookii", meaning: "besar"},
-    {japanese: "ちいさい", romaji: "chiisai", meaning: "kecil"},
-    {japanese: "ひまな", romaji: "hima na", meaning: "senggang"},
-    {japanese: "いそがしい", romaji: "isogashii", meaning: "sibuk"},
-    {japanese: "わかい", romaji: "wakai", meaning: "muda"},
-    {japanese: "としうえ", romaji: "toshiue", meaning: "tua"},
-    {japanese: "たいせつな", romaji: "taisetsu na", meaning: "penting"},
-    {japanese: "ほしい", romaji: "hoshii", meaning: "ingin"},
-    {japanese: "あかるい", romaji: "akarui", meaning: "terang"},
-    {japanese: "くらい", romaji: "kurai", meaning: "gelap"},
-    {japanese: "ひろい", romaji: "hiroi", meaning: "luas"},
-    {japanese: "せまい", romaji: "semai", meaning: "sempit"},
-    {japanese: "あたらしい", romaji: "atarashii", meaning: "baru"},
-    {japanese: "ふるい", romaji: "furui", meaning: "lama / kuno"},
-    {japanese: "いい", romaji: "ii", meaning: "bagus"},
-    {japanese: "わるい", romaji: "warui", meaning: "jelek"},
-    {japanese: "あつい", romaji: "atsui", meaning: "panas"},
-    {japanese: "さむい", romaji: "samui", meaning: "dingin (suhu)"},
-    {japanese: "あつい", romaji: "atsui", meaning: "tebal"},
-    {japanese: "つめたい", romaji: "tsumetai", meaning: "dingin (benda)"},
-    {japanese: "やさしい", romaji: "yasashii", meaning: "mudah/ramah"},
-    {japanese: "むずかしい", romaji: "muzukashii", meaning: "sulit"},
-    {japanese: "べんりな", romaji: "benri na", meaning: "praktis"},
-    {japanese: "ふべんな", romaji: "fuben na", meaning: "tidak praktis"},
-    {japanese: "かんたんな", romaji: "kantan na", meaning: "mudah"},
-    {japanese: "ふくざつな", romaji: "fukuzatsu na", meaning: "rumit"},
-    {japanese: "せがたかい", romaji: "se ga takai", meaning: "tinggi badan"},
-    {japanese: "せがひくい", romaji: "se ga hikui", meaning: "pendek badan"},
-    {japanese: "あぶない", romaji: "abunai", meaning: "bahaya"},
-    {japanese: "うれしい", romaji: "ureshii", meaning: "senang"},
-    {japanese: "かなしい", romaji: "kanashii", meaning: "sedih"},
-    {japanese: "さびしい", romaji: "sabishii", meaning: "kesepian"},
+        // Kata Sifat
+        {japanese: "きれいな", romaji: "kirei na", meaning: "cantik"},
+        {japanese: "げんきな", romaji: "genki na", meaning: "sehat"},
+        {japanese: "しんせつな", romaji: "shinsetsu na", meaning: "baik hati"},
+        {japanese: "ゆうめいな", romaji: "yuumei na", meaning: "terkenal"},
+        {japanese: "にぎやかな", romaji: "nigiyaka na", meaning: "ramai"},
+        {japanese: "しずかな", romaji: "shizuka na", meaning: "tenang"},
+        {japanese: "たのしい", romaji: "tanoshii", meaning: "menyenangkan"},
+        {japanese: "おおきい", romaji: "ookii", meaning: "besar"},
+        {japanese: "ちいさい", romaji: "chiisai", meaning: "kecil"},
+        {japanese: "ひまな", romaji: "hima na", meaning: "senggang"},
+        {japanese: "いそがしい", romaji: "isogashii", meaning: "sibuk"},
+        {japanese: "わかい", romaji: "wakai", meaning: "muda"},
+        {japanese: "としうえ", romaji: "toshiue", meaning: "tua"},
+        {japanese: "たいせつな", romaji: "taisetsu na", meaning: "penting"},
+        {japanese: "ほしい", romaji: "hoshii", meaning: "ingin"},
+        {japanese: "あかるい", romaji: "akarui", meaning: "terang"},
+        {japanese: "くらい", romaji: "kurai", meaning: "gelap"},
+        {japanese: "ひろい", romaji: "hiroi", meaning: "luas"},
+        {japanese: "せまい", romaji: "semai", meaning: "sempit"},
+        {japanese: "あたらしい", romaji: "atarashii", meaning: "baru"},
+        {japanese: "ふるい", romaji: "furui", meaning: "lama / kuno"},
+        {japanese: "いい", romaji: "ii", meaning: "bagus"},
+        {japanese: "わるい", romaji: "warui", meaning: "jelek"},
+        {japanese: "あつい", romaji: "atsui", meaning: "panas"},
+        {japanese: "さむい", romaji: "samui", meaning: "dingin (suhu)"},
+        {japanese: "あつい", romaji: "atsui", meaning: "tebal"},
+        {japanese: "つめたい", romaji: "tsumetai", meaning: "dingin (benda)"},
+        {japanese: "やさしい", romaji: "yasashii", meaning: "mudah/ramah"},
+        {japanese: "むずかしい", romaji: "muzukashii", meaning: "sulit"},
+        {japanese: "べんりな", romaji: "benri na", meaning: "praktis"},
+        {japanese: "ふべんな", romaji: "fuben na", meaning: "tidak praktis"},
+        {japanese: "かんたんな", romaji: "kantan na", meaning: "mudah"},
+        {japanese: "ふくざつな", romaji: "fukuzatsu na", meaning: "rumit"},
+        {japanese: "せがたかい", romaji: "se ga takai", meaning: "tinggi badan"},
+        {japanese: "せがひくい", romaji: "se ga hikui", meaning: "pendek badan"},
+        {japanese: "あぶない", romaji: "abunai", meaning: "bahaya"},
+        {japanese: "うれしい", romaji: "ureshii", meaning: "senang"},
+        {japanese: "かなしい", romaji: "kanashii", meaning: "sedih"},
+        {japanese: "さびしい", romaji: "sabishii", meaning: "kesepian"},
 
-    // Kata Benda
-    {japanese: "かつこう", romaji: "katsukou", meaning: "bentuk"},
-    {japanese: "れっしん", romaji: "resshin", meaning: "tekun"},
-    {japanese: "ばんぐみ", romaji: "bangumi", meaning: "acara tv"},
-    {japanese: "サイン", romaji: "sain", meaning: "tanda tangan"},
-    {japanese: "ロッカー", romaji: "rokkaa", meaning: "loker"},
-    {japanese: "ごみおきば", romaji: "gomi okiba", meaning: "tempat sampah"},
-    {japanese: "サイト", romaji: "saito", meaning: "situs"},
-    {japanese: "なま", romaji: "nama", meaning: "mentah"},
-    {japanese: "ボランティア", romaji: "borantia", meaning: "volunteer"},
-    {japanese: "ベンチ", romaji: "benchi", meaning: "kursi taman"},
-    {japanese: "かつどう", romaji: "katsudou", meaning: "aktivitas"},
-    {japanese: "どうろ", romaji: "douro", meaning: "jalan raya"},
-    {japanese: "しょどう", romaji: "shodou", meaning: "trotoar"},
-    {japanese: "はどう", romaji: "hadou", meaning: "gelombang"},
-    {japanese: "こくぎ", romaji: "kokugi", meaning: "olahraga nasional"},
-    {japanese: "しよう", romaji: "shiyou", meaning: "penggunaan"},
-    {japanese: "リモコン", romaji: "rimokon", meaning: "remote control"},
-    {japanese: "きょく", romaji: "kyoku", meaning: "lagu"},
-    {japanese: "うた", romaji: "uta", meaning: "lagu"},
-    {japanese: "おんがく", romaji: "ongaku", meaning: "musik"},
-    {japanese: "どくしょ", romaji: "dokusho", meaning: "bacaan"},
-    {japanese: "ちゅうりんじょう", romaji: "chuurinjou", meaning: "parkir sepeda"},
-    {japanese: "だいどころ", romaji: "daidokoro", meaning: "dapur"},
-    {japanese: "そうこ", romaji: "souko", meaning: "gudang"},
-    {japanese: "しごと", romaji: "shigoto", meaning: "pekerjaan"},
-    {japanese: "しゅじん", romaji: "shujin", meaning: "tuan rumah"},
-    {japanese: "じかん", romaji: "jikan", meaning: "jam"},
-    {japanese: "ゆうがた", romaji: "yuugata", meaning: "senja"},
-    {japanese: "メートル", romaji: "meetoru", meaning: "meter"},
-    {japanese: "じぶん", romaji: "jibun", meaning: "diri sendiri"},
-    {japanese: "かさ", romaji: "kasa", meaning: "payung"},
-    {japanese: "ようちえん", romaji: "youchien", meaning: "tk"},
-    {japanese: "レンタカー", romaji: "rentakaa", meaning: "mobil sewaan"},
-    {japanese: "クレジットカード", romaji: "kurejitto kaado", meaning: "kartu kredit"},
-    {japanese: "れつ", romaji: "retsu", meaning: "barisan"},
-    {japanese: "グラム", romaji: "guramu", meaning: "gram"},
-    {japanese: "キロ", romaji: "kiro", meaning: "kilo"},
-    {japanese: "ページ", romaji: "peeji", meaning: "halaman"},
-    {japanese: "ばんめ", romaji: "banme", meaning: "urutan ke"},
-    {japanese: "つくえ", romaji: "tsukue", meaning: "meja"},
-    {japanese: "いす", romaji: "isu", meaning: "kursi"}
-];
+        // Kata Benda
+        {japanese: "かつこう", romaji: "katsukou", meaning: "bentuk"},
+        {japanese: "れっしん", romaji: "resshin", meaning: "tekun"},
+        {japanese: "ばんぐみ", romaji: "bangumi", meaning: "acara tv"},
+        {japanese: "サイン", romaji: "sain", meaning: "tanda tangan"},
+        {japanese: "ロッカー", romaji: "rokkaa", meaning: "loker"},
+        {japanese: "ごみおきば", romaji: "gomi okiba", meaning: "tempat sampah"},
+        {japanese: "サイト", romaji: "saito", meaning: "situs"},
+        {japanese: "なま", romaji: "nama", meaning: "mentah"},
+        {japanese: "ボランティア", romaji: "borantia", meaning: "volunteer"},
+        {japanese: "ベンチ", romaji: "benchi", meaning: "kursi taman"},
+        {japanese: "かつどう", romaji: "katsudou", meaning: "aktivitas"},
+        {japanese: "どうろ", romaji: "douro", meaning: "jalan raya"},
+        {japanese: "しょどう", romaji: "shodou", meaning: "trotoar"},
+        {japanese: "はどう", romaji: "hadou", meaning: "gelombang"},
+        {japanese: "こくぎ", romaji: "kokugi", meaning: "olahraga nasional"},
+        {japanese: "しよう", romaji: "shiyou", meaning: "penggunaan"},
+        {japanese: "リモコン", romaji: "rimokon", meaning: "remote control"},
+        {japanese: "きょく", romaji: "kyoku", meaning: "lagu"},
+        {japanese: "うた", romaji: "uta", meaning: "lagu"},
+        {japanese: "おんがく", romaji: "ongaku", meaning: "musik"},
+        {japanese: "どくしょ", romaji: "dokusho", meaning: "bacaan"},
+        {japanese: "ちゅうりんじょう", romaji: "chuurinjou", meaning: "parkir sepeda"},
+        {japanese: "だいどころ", romaji: "daidokoro", meaning: "dapur"},
+        {japanese: "そうこ", romaji: "souko", meaning: "gudang"},
+        {japanese: "しごと", romaji: "shigoto", meaning: "pekerjaan"},
+        {japanese: "しゅじん", romaji: "shujin", meaning: "tuan rumah"},
+        {japanese: "じかん", romaji: "jikan", meaning: "jam"},
+        {japanese: "ゆうがた", romaji: "yuugata", meaning: "senja"},
+        {japanese: "メートル", romaji: "meetoru", meaning: "meter"},
+        {japanese: "じぶん", romaji: "jibun", meaning: "diri sendiri"},
+        {japanese: "かさ", romaji: "kasa", meaning: "payung"},
+        {japanese: "ようちえん", romaji: "youchien", meaning: "tk"},
+        {japanese: "レンタカー", romaji: "rentakaa", meaning: "mobil sewaan"},
+        {japanese: "クレジットカード", romaji: "kurejitto kaado", meaning: "kartu kredit"},
+        {japanese: "れつ", romaji: "retsu", meaning: "barisan"},
+        {japanese: "グラム", romaji: "guramu", meaning: "gram"},
+        {japanese: "キロ", romaji: "kiro", meaning: "kilo"},
+        {japanese: "ページ", romaji: "peeji", meaning: "halaman"},
+        {japanese: "ばんめ", romaji: "banme", meaning: "urutan ke"},
+        {japanese: "つくえ", romaji: "tsukue", meaning: "meja"},
+        {japanese: "いす", romaji: "isu", meaning: "kursi"}
+    ];
 
-// Game state
-let shuffledVocabulary = [...vocabulary]; // Declare and initialize shuffledVocabulary
-let currentIndex = 0;
-let isAnswered = false;
-let correctCount = 0;
-let incorrectCount = 0;
-let currentStreak = 0;
-let maxStreak = 0;
-let romajiVisible = false;
-let autoNext = true;
-let currentUser = '';
+    // Game state
+    let shuffledVocabulary = [...vocabulary]; // Declare and initialize shuffledVocabulary
+    let currentIndex = 0;
+    let isAnswered = false;
+    let correctCount = 0;
+    let incorrectCount = 0;
+    let currentStreak = 0;
+    let maxStreak = 0;
+    let romajiVisible = false;
+    let autoNext = true;
+    let currentUser = '';
 
-// Sound effects
-const sounds = {
-    correct: () => {
-        const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+b2uWIcBjaM0fPTgjMGJHjH7+OUPH4UWbXp7atTFAhHpOH2v2IcBzWIzfLVeyxPCFa05e6nWBUJR6rL2+qXMwg=');
-        audio.volume = 0.3;
-        audio.play().catch(() => {});
-    },
-    incorrect: () => {
-        const audio = new Audio('data:audio/wav;base64,UklGRnQDAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YVADAAA/v/2/bL/+v6K/HkOowx5PrKMex65Em8MyT7qnHsOmRRuDJkOsx55Wq8Oox7JIqcMqT6u/Osizxq5Xq8MsT66/OkKowzpNqMMmT6y/MFCswzBTqsMtU6nDPVWswx5PrMMeU6zDFlSswxpProMqT6y/Jsyzw0xTqsOrw6zDa1Mez65Em8MiT7nLElOsxaxVq8Om');
-        audio.volume = 0.3;
-        audio.play().catch(() => {});
-    }
-};
-
-// DOM elements
-const elements = {
-    japaneseWord: document.getElementById('japanese-word'),
-    romaji: document.getElementById('romaji'),
-    romajiBtn: document.getElementById('romaji-btn'),
-    options: document.getElementById('options'),
-    nextBtn: document.getElementById('next-btn'),
-    shuffleBtn: document.getElementById('shuffle-btn'),
-    resetBtn: document.getElementById('reset-btn'),
-    feedback: document.getElementById('feedback'),
-    current: document.getElementById('current'),
-    total: document.getElementById('total'),
-    correctCountEl: document.getElementById('correct-count'),
-    incorrectCountEl: document.getElementById('incorrect-count'),
-    streak: document.getElementById('streak'),
-    usernameInput: document.getElementById('username-input'),
-    currentUser: document.getElementById('current-user'),
-    leaderboardList: document.getElementById('leaderboard-list'),
-    autoNextToggle: document.getElementById('auto-next-toggle')
-};
-
-// Initialize app
-function init() {
-    elements.total.textContent = vocabulary.length;
-    shuffleArray(shuffledVocabulary); // Shuffle the vocabulary at the start
-    setupEventListeners();
-    loadUserData();
-    showCard();
-    updateLeaderboard();
-}
-
-function setupEventListeners() {
-    elements.nextBtn.addEventListener('click', nextCard);
-    elements.shuffleBtn.addEventListener('click', shuffleCards);
-    elements.resetBtn.addEventListener('click', resetScore);
-    elements.romajiBtn.addEventListener('click', toggleRomaji);
-    
-    // Keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-        if (e.key === ' ' && !isAnswered) {
-            e.preventDefault();
-            toggleRomaji();
-        } else if (e.key === 'Enter' && isAnswered) {
-            nextCard();
-        } else if (e.key >= '1' && e.key <= '4' && !isAnswered) {
-            const optionIndex = parseInt(e.key) - 1;
-            const optionElements = document.querySelectorAll('.option');
-            if (optionElements[optionIndex]) {
-                optionElements[optionIndex].click();
-            }
+    // Sound effects
+    const sounds = {
+        correct: () => {
+            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+b2uWIcBjaM0fPTgjMGJHjH7+OUPH4UWbXp7atTFAhHpOH2v2IcBzWIzfLVeyxPCFa05e6nWBUJR6rL2+qXMwg=');
+            audio.volume = 0.3;
+            audio.play().catch(() => {});
+        },
+        incorrect: () => {
+            const audio = new Audio('data:audio/wav;base64,UklGRnQDAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YVADAAA/v/2/bL/+v6K/HkOowx5PrKMex65Em8MyT7qnHsOmRRuDJkOsx55Wq8Oox7JIqcMqT6u/Osizxq5Xq8MsT66/OkKowzpNqMMmT6y/MFCswzBTqsMtU6nDPVWswx5PrMMeU6zDFlSswxpProMqT6y/Jsyzw0xTqsOrw6zDa1Mez65Em8MiT7nLElOsxaxVq8Om');
+            audio.volume = 0.3;
+            audio.play().catch(() => {});
         }
-    });
-}
+    };
 
-function loadUserData() {
-    const userData = JSON.parse(localStorage.getItem('japaneseFlashcardsUser') || '{}');
-    if (userData.name) {
-        currentUser = userData.name;
-        elements.currentUser.textContent = `Halo, ${currentUser}! 👋`;
-        elements.usernameInput.style.display = 'none';
-    }
+    // DOM elements
+    const elements = {
+        japaneseWord: document.getElementById('japanese-word'),
+        romaji: document.getElementById('romaji'),
+        romajiBtn: document.getElementById('romaji-btn'),
+        options: document.getElementById('options'),
+        nextBtn: document.getElementById('next-btn'),
+        shuffleBtn: document.getElementById('shuffle-btn'),
+        resetBtn: document.getElementById('reset-btn'),
+        feedback: document.getElementById('feedback'),
+        current: document.getElementById('current'),
+        total: document.getElementById('total'),
+        correctCountEl: document.getElementById('correct-count'),
+        incorrectCountEl: document.getElementById('incorrect-count'),
+        streak: document.getElementById('streak'),
+        usernameInput: document.getElementById('username-input'),
+        currentUser: document.getElementById('current-user'),
+        leaderboardList: document.getElementById('leaderboard-list'),
+        autoNextToggle: document.getElementById('auto-next-toggle')
+    };
 
-    const savedAutoNext = localStorage.getItem('japaneseFlashcardsAutoNext');
-    if (savedAutoNext !== null) {
-        autoNext = JSON.parse(savedAutoNext);
-        elements.autoNextToggle.classList.toggle('active', autoNext);
-    }
-}
-
-function setUsername() {
-    const username = elements.usernameInput.value.trim();
-    if (username) {
-        currentUser = username;
-        elements.currentUser.textContent = `Halo, ${currentUser}! 👋`;
-        elements.usernameInput.style.display = 'none';
-        localStorage.setItem('japaneseFlashcardsUser', JSON.stringify({name: currentUser}));
+    // Initialize app
+    function init() {
+        elements.total.textContent = vocabulary.length;
+        shuffleArray(shuffledVocabulary); // Shuffle the vocabulary at the start
+        setupEventListeners();
+        loadUserData();
+        showCard();
         updateLeaderboard();
     }
-}
 
-function updateLeaderboard() {
-    if (!currentUser) return;
-    
-    let leaderboard = JSON.parse(localStorage.getItem('japaneseFlashcardsLeaderboard') || '[]');
-    let userEntry = leaderboard.find(user => user.name === currentUser);
-    
-    if (userEntry) {
-        userEntry.correct = correctCount;
-        userEntry.total = correctCount + incorrectCount;
-        userEntry.accuracy = userEntry.total > 0 ? Math.round((userEntry.correct / userEntry.total) * 100) : 0;
-        userEntry.maxStreak = Math.max(userEntry.maxStreak || 0, maxStreak);
-    } else {
-        leaderboard.push({
-            name: currentUser,
-            correct: correctCount,
-            total: correctCount + incorrectCount,
-            accuracy: correctCount + incorrectCount > 0 ? Math.round((correctCount / (correctCount + incorrectCount)) * 100) : 0,
-            maxStreak: maxStreak
-        });
-    }
-    
-    leaderboard.sort((a, b) => {
-        if (b.accuracy !== a.accuracy) return b.accuracy - a.accuracy;
-        if (b.correct !== a.correct) return b.correct - a.correct;
-        return b.maxStreak - a.maxStreak;
-    });
-    
-    localStorage.setItem('japaneseFlashcardsLeaderboard', JSON.stringify(leaderboard.slice(0, 10)));
-    
-    displayLeaderboard();
-}
-
-function displayLeaderboard() {
-    const leaderboard = JSON.parse(localStorage.getItem('japaneseFlashcardsLeaderboard') || '[]');
-    elements.leaderboardList.innerHTML = '';
-    
-    leaderboard.slice(0, 5).forEach((user, index) => {
-        const item = document.createElement('div');
-        item.className = 'leaderboard-item';
-        item.innerHTML = `
-            <span>${index + 1}. ${user.name} ${user.name === currentUser ? '(Anda)' : ''}</span>
-            <span>${user.accuracy}% (${user.correct}/${user.total})</span>
-        `;
-        elements.leaderboardList.appendChild(item);
-    });
-}
-
-function showCard() {
-    isAnswered = false;
-    romajiVisible = false;
-    elements.romaji.classList.remove('visible');
-    elements.feedback.classList.remove('visible', 'correct', 'incorrect');
-    elements.nextBtn.disabled = true;
-    
-    if (currentIndex >= shuffledVocabulary.length) {
-        currentIndex = 0; // Loop back to the beginning if all cards have been seen
-    }
-
-    const currentWord = shuffledVocabulary[currentIndex];
-    elements.japaneseWord.textContent = currentWord.japanese;
-    elements.romaji.textContent = currentWord.romaji;
-    elements.current.textContent = currentIndex + 1;
-
-    generateOptions(currentWord);
-}
-
-function generateOptions(currentWord) {
-    elements.options.innerHTML = '';
-    let options = [currentWord.meaning];
-
-    // Get 3 other random meanings
-    while (options.length < 4) {
-        const randomIndex = Math.floor(Math.random() * vocabulary.length);
-        const randomMeaning = vocabulary[randomIndex].meaning;
-        if (!options.includes(randomMeaning) && randomMeaning !== currentWord.meaning) { // Ensure uniqueness and not the correct answer
-            options.push(randomMeaning);
-        }
-    }
-
-    shuffleArray(options); // Shuffle the options
-
-    options.forEach(option => {
-        const button = document.createElement('button');
-        button.classList.add('option');
-        button.textContent = option;
-        button.addEventListener('click', () => checkAnswer(button, option, currentWord.meaning));
-        elements.options.appendChild(button);
-    });
-}
-
-function checkAnswer(selectedButton, selectedMeaning, correctAnswer) {
-    if (isAnswered) return; // Prevent multiple answers
-    isAnswered = true;
-    elements.nextBtn.disabled = false;
-
-    // Disable all options
-    document.querySelectorAll('.option').forEach(btn => btn.classList.add('disabled'));
-
-    if (selectedMeaning === correctAnswer) {
-        selectedButton.classList.add('correct');
-        elements.feedback.textContent = 'Benar! 🎉';
-        elements.feedback.classList.add('visible', 'correct');
-        correctCount++;
-        currentStreak++;
-        sounds.correct();
-    } else {
-        selectedButton.classList.add('incorrect');
-        elements.feedback.textContent = `Salah! Jawaban benar: "${correctAnswer}" 😢`;
-        elements.feedback.classList.add('visible', 'incorrect');
-        incorrectCount++;
-        maxStreak = Math.max(maxStreak, currentStreak);
-        currentStreak = 0;
-        sounds.incorrect();
-
-        // Highlight the correct answer
-        document.querySelectorAll('.option').forEach(btn => {
-            if (btn.textContent === correctAnswer) {
-                btn.classList.add('correct');
+    function setupEventListeners() {
+        elements.nextBtn.addEventListener('click', nextCard);
+        elements.shuffleBtn.addEventListener('click', shuffleCards);
+        elements.resetBtn.addEventListener('click', resetScore);
+        elements.romajiBtn.addEventListener('click', toggleRomaji);
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === ' ' && !isAnswered) {
+                e.preventDefault();
+                toggleRomaji();
+            } else if (e.key === 'Enter' && isAnswered) {
+                nextCard();
+            } else if (e.key >= '1' && e.key <= '4' && !isAnswered) {
+                const optionIndex = parseInt(e.key) - 1;
+                const optionElements = document.querySelectorAll('.option');
+                if (optionElements[optionIndex]) {
+                    optionElements[optionIndex].click();
+                }
             }
         });
     }
-    updateCounts();
-    updateStreak();
-    updateLeaderboard();
 
-    if (autoNext && selectedMeaning === correctAnswer) {
-        setTimeout(nextCard, 1000); // Auto next after 1 second if correct
+    function loadUserData() {
+        const userData = JSON.parse(localStorage.getItem('japaneseFlashcardsUser') || '{}');
+        if (userData.name) {
+            currentUser = userData.name;
+            elements.currentUser.textContent = `Halo, ${currentUser}! 👋`;
+            elements.usernameInput.style.display = 'none';
+        }
+
+        const savedAutoNext = localStorage.getItem('japaneseFlashcardsAutoNext');
+        if (savedAutoNext !== null) {
+            autoNext = JSON.parse(savedAutoNext);
+            elements.autoNextToggle.classList.toggle('active', autoNext);
+        }
     }
-}
 
-function nextCard() {
-    currentIndex++;
-    showCard();
-}
-
-function shuffleCards() {
-    shuffleArray(shuffledVocabulary);
-    currentIndex = 0;
-    resetScore(false); // Reset score but don't reset leaderboard/user data
-    showCard();
-}
-
-function resetScore(resetUserData = true) {
-    correctCount = 0;
-    incorrectCount = 0;
-    currentStreak = 0;
-    maxStreak = 0;
-    updateCounts();
-    updateStreak();
-    if (resetUserData) {
-        updateLeaderboard(); // Only update leaderboard if resetting user data too
+    function setUsername() {
+        const username = elements.usernameInput.value.trim();
+        if (username) {
+            currentUser = username;
+            elements.currentUser.textContent = `Halo, ${currentUser}! 👋`;
+            elements.usernameInput.style.display = 'none';
+            localStorage.setItem('japaneseFlashcardsUser', JSON.stringify({name: currentUser}));
+            updateLeaderboard();
+        }
     }
-    showCard();
-}
 
-function updateCounts() {
-    elements.correctCountEl.textContent = correctCount;
-    elements.incorrectCountEl.textContent = incorrectCount;
-}
-
-function updateStreak() {
-    elements.streak.textContent = `🔥 ${currentStreak}`;
-    elements.streak.style.display = currentStreak > 0 ? 'block' : 'none';
-    elements.streak.classList.toggle('good', currentStreak >= 3); // Example: Good streak at 3+
-}
-
-function toggleRomaji() {
-    romajiVisible = !romajiVisible;
-    elements.romaji.classList.toggle('visible', romajiVisible);
-    elements.romajiBtn.innerHTML = romajiVisible 
-        ? '<span class="eye-icon">🙈</span> Sembunyikan Romaji' 
-        : '<span class="eye-icon">👁️</span> Lihat Romaji';
-}
-
-function toggleAutoNext() {
-    autoNext = !autoNext;
-    elements.autoNextToggle.classList.toggle('active', autoNext);
-    localStorage.setItem('japaneseFlashcardsAutoNext', JSON.stringify(autoNext));
-}
-
-// Fisher-Yates (Knuth) Shuffle
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    function updateLeaderboard() {
+        if (!currentUser) return;
+        
+        let leaderboard = JSON.parse(localStorage.getItem('japaneseFlashcardsLeaderboard') || '[]');
+        let userEntry = leaderboard.find(user => user.name === currentUser);
+        
+        if (userEntry) {
+            userEntry.correct = correctCount;
+            userEntry.total = correctCount + incorrectCount;
+            userEntry.accuracy = userEntry.total > 0 ? Math.round((userEntry.correct / userEntry.total) * 100) : 0;
+            userEntry.maxStreak = Math.max(userEntry.maxStreak || 0, maxStreak);
+        } else {
+            leaderboard.push({
+                name: currentUser,
+                correct: correctCount,
+                total: correctCount + incorrectCount,
+                accuracy: correctCount + incorrectCount > 0 ? Math.round((correctCount / (correctCount + incorrectCount)) * 100) : 0,
+                maxStreak: maxStreak
+            });
+        }
+        
+        leaderboard.sort((a, b) => {
+            if (b.accuracy !== a.accuracy) return b.accuracy - a.accuracy;
+            if (b.correct !== a.correct) return b.correct - a.correct;
+            return b.maxStreak - a.maxStreak;
+        });
+        
+        localStorage.setItem('japaneseFlashcardsLeaderboard', JSON.stringify(leaderboard.slice(0, 10)));
+        
+        displayLeaderboard();
     }
-}
 
-// Ensure the functions are globally accessible if called from HTML onclick
-window.setUsername = setUsername;
-window.toggleAutoNext = toggleAutoNext;
+    function displayLeaderboard() {
+        const leaderboard = JSON.parse(localStorage.getItem('japaneseFlashcardsLeaderboard') || '[]');
+        elements.leaderboardList.innerHTML = '';
+        
+        leaderboard.slice(0, 5).forEach((user, index) => {
+            const item = document.createElement('div');
+            item.className = 'leaderboard-item';
+            item.innerHTML = `
+                <span>${index + 1}. ${user.name} ${user.name === currentUser ? '(Anda)' : ''}</span>
+                <span>${user.accuracy}% (${user.correct}/${user.total})</span>
+            `;
+            elements.leaderboardList.appendChild(item);
+        });
+    }
 
-// Initial call to start the app
-init();
+    function showCard() {
+        isAnswered = false;
+        romajiVisible = false;
+        elements.romaji.classList.remove('visible');
+        elements.feedback.classList.remove('visible', 'correct', 'incorrect');
+        elements.nextBtn.disabled = true;
+        
+        if (currentIndex >= shuffledVocabulary.length) {
+            currentIndex = 0; // Loop back to the beginning if all cards have been seen
+        }
+
+        const currentWord = shuffledVocabulary[currentIndex];
+        elements.japaneseWord.textContent = currentWord.japanese;
+        elements.romaji.textContent = currentWord.romaji;
+        elements.current.textContent = currentIndex + 1;
+
+        generateOptions(currentWord);
+    }
+
+    function generateOptions(currentWord) {
+        elements.options.innerHTML = '';
+        let options = [currentWord.meaning];
+
+        // Get 3 other random meanings
+        while (options.length < 4) {
+            const randomIndex = Math.floor(Math.random() * vocabulary.length);
+            const randomMeaning = vocabulary[randomIndex].meaning;
+            if (!options.includes(randomMeaning) && randomMeaning !== currentWord.meaning) { // Ensure uniqueness and not the correct answer
+                options.push(randomMeaning);
+            }
+        }
+
+        shuffleArray(options); // Shuffle the options
+
+        options.forEach(option => {
+            const button = document.createElement('button');
+            button.classList.add('option');
+            button.textContent = option;
+            button.addEventListener('click', () => checkAnswer(button, option, currentWord.meaning));
+            elements.options.appendChild(button);
+        });
+    }
+
+    function checkAnswer(selectedButton, selectedMeaning, correctAnswer) {
+        if (isAnswered) return; // Prevent multiple answers
+        isAnswered = true;
+        elements.nextBtn.disabled = false;
+
+        // Disable all options
+        document.querySelectorAll('.option').forEach(btn => btn.classList.add('disabled'));
+
+        if (selectedMeaning === correctAnswer) {
+            selectedButton.classList.add('correct');
+            elements.feedback.textContent = 'Benar! 🎉';
+            elements.feedback.classList.add('visible', 'correct');
+            correctCount++;
+            currentStreak++;
+            sounds.correct();
+        } else {
+            selectedButton.classList.add('incorrect');
+            elements.feedback.textContent = `Salah! Jawaban benar: "${correctAnswer}" 😢`;
+            elements.feedback.classList.add('visible', 'incorrect');
+            incorrectCount++;
+            maxStreak = Math.max(maxStreak, currentStreak);
+            currentStreak = 0;
+            sounds.incorrect();
+
+            // Highlight the correct answer
+            document.querySelectorAll('.option').forEach(btn => {
+                if (btn.textContent === correctAnswer) {
+                    btn.classList.add('correct');
+                }
+            });
+        }
+        updateCounts();
+        updateStreak();
+        updateLeaderboard();
+
+        if (autoNext && selectedMeaning === correctAnswer) {
+            setTimeout(nextCard, 1000); // Auto next after 1 second if correct
+        }
+    }
+
+    function nextCard() {
+        currentIndex++;
+        showCard();
+    }
+
+    function shuffleCards() {
+        shuffleArray(shuffledVocabulary);
+        currentIndex = 0;
+        resetScore(false); // Reset score but don't reset leaderboard/user data
+        showCard();
+    }
+
+    function resetScore(resetUserData = true) {
+        correctCount = 0;
+        incorrectCount = 0;
+        currentStreak = 0;
+        maxStreak = 0;
+        updateCounts();
+        updateStreak();
+        if (resetUserData) {
+            updateLeaderboard(); // Only update leaderboard if resetting user data too
+        }
+        showCard();
+    }
+
+    function updateCounts() {
+        elements.correctCountEl.textContent = correctCount;
+        elements.incorrectCountEl.textContent = incorrectCount;
+    }
+
+    function updateStreak() {
+        elements.streak.textContent = `🔥 ${currentStreak}`;
+        elements.streak.style.display = currentStreak > 0 ? 'block' : 'none';
+        elements.streak.classList.toggle('good', currentStreak >= 3); // Example: Good streak at 3+
+    }
+
+    function toggleRomaji() {
+        romajiVisible = !romajiVisible;
+        elements.romaji.classList.toggle('visible', romajiVisible);
+        elements.romajiBtn.innerHTML = romajiVisible 
+            ? '<span class="eye-icon">🙈</span> Sembunyikan Romaji' 
+            : '<span class="eye-icon">👁️</span> Lihat Romaji';
+    }
+
+    function toggleAutoNext() {
+        autoNext = !autoNext;
+        elements.autoNextToggle.classList.toggle('active', autoNext);
+        localStorage.setItem('japaneseFlashcardsAutoNext', JSON.stringify(autoNext));
+    }
+
+    // Fisher-Yates (Knuth) Shuffle
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Ensure the functions are globally accessible if called from HTML onclick
+    window.setUsername = setUsername;
+    window.toggleAutoNext = toggleAutoNext;
+
+    // Initial call to start the app
+    init();
+    </script>
+    </body>
+</html>
