@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Vocabulary Flashcards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .progress {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid #e9ecef;
+        }
+
+        .japanese-word {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+        }
+
+        .romaji {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #667eea;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-check {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-check:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .btn-next {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-next:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        .btn-shuffle {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .btn-shuffle:hover {
+            background: #e0a800;
+            transform: translateY(-2px);
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+
+        .answer {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .japanese-word {
+                font-size: 36px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress">
+            <span id="current">1</span> of <span id="total">0</span>
+        </div>
+        
+        <div class="card">
+            <div class="japanese-word" id="japanese-word">Loading...</div>
+            <div class="romaji" id="romaji"></div>
+        </div>
+        
+        <div class="input-group">
+            <input type="text" id="answer-input" placeholder="Masukkan terjemahan dalam bahasa Indonesia..." autocomplete="off">
+        </div>
+        
+        <div class="buttons">
+            <button class="btn-check" id="check-btn">Check Answer</button>
+            <button class="btn-next" id="next-btn" style="display: none;">Next Card</button>
+            <button class="btn-shuffle" id="shuffle-btn">Shuffle Cards</button>
+        </div>
+        
+        <div class="feedback" id="feedback" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Vocabulary data
+        const vocabulary = [
+            // Kata Kerja
+            {japanese: "おきます", romaji: "okimasu", meaning: "bangun"},
+            {japanese: "ねます", romaji: "nemasu", meaning: "tidur"},
+            {japanese: "はじめます", romaji: "hajimemasu", meaning: "memulai"},
+            {japanese: "おわります", romaji: "owarimasu", meaning: "berakhir"},
+            {japanese: "がんばります", romaji: "ganbarimasui", meaning: "berusaha"},
+            {japanese: "はたらきます", romaji: "hatarakimasu", meaning: "bekerja"},
+            {japanese: "かけます", romaji: "kakemasu", meaning: "menggantung"},
+            {japanese: "べんきょうします", romaji: "benkyou shimasu", meaning: "belajar"},
+            {japanese: "いきます", romaji: "ikimasu", meaning: "pergi"},
+            {japanese: "きます", romaji: "kimasu", meaning: "datang"},
+            {japanese: "かえります", romaji: "kaerimasu", meaning: "pulang"},
+            {japanese: "あいます", romaji: "aimasu", meaning: "bertemu"},
+            {japanese: "やすみをとります", romaji: "yasumi wo torimasu", meaning: "istirahat"},
+            {japanese: "つとめます", romaji: "tsutomemasu", meaning: "bekerja"},
+            {japanese: "たべます", romaji: "tabemasu", meaning: "makan"},
+            {japanese: "のみます", romaji: "nomimasu", meaning: "minum"},
+            {japanese: "わかります", romaji: "wakarimasu", meaning: "mengerti"},
+            {japanese: "きります", romaji: "kirimasu", meaning: "memotong"},
+            {japanese: "すいます", romaji: "suimasu", meaning: "menghisap"},
+            {japanese: "こたえます", romaji: "kotaemasu", meaning: "menjawab"},
+            {japanese: "みます", romaji: "mimasu", meaning: "melihat"},
+            {japanese: "ききます", romaji: "kikimasu", meaning: "mendengar"},
+            {japanese: "よみます", romaji: "yomimasu", meaning: "membaca"},
+            {japanese: "かきます", romaji: "kakimasu", meaning: "menulis"},
+            {japanese: "かいます", romaji: "kaimasu", meaning: "membeli"},
+            {japanese: "あげます", romaji: "agemasu", meaning: "memberi"},
+            {japanese: "もらいます", romaji: "moraimasu", meaning: "menerima"},
+            {japanese: "かします", romaji: "kashimasu", meaning: "meminjamkan"},
+            {japanese: "かります", romaji: "karimasu", meaning: "meminjam"},
+            {japanese: "おしえます", romaji: "oshiemasu", meaning: "mengajar"},
+            {japanese: "はいります", romaji: "hairimasu", meaning: "masuk"},
+            {japanese: "でます", romaji: "demasu", meaning: "keluar"},
+            {japanese: "でんわをかけます", romaji: "denwa wo kakemasu", meaning: "menelepon"},
+            {japanese: "います", romaji: "imasu", meaning: "ada"},
+            {japanese: "あります", romaji: "arimasu", meaning: "ada"},
+            {japanese: "かかります", romaji: "kakarimasu", meaning: "memakan waktu"},
+            {japanese: "けっこんします", romaji: "kekkon shimasu", meaning: "menikah"},
+            {japanese: "かいものします", romaji: "kaimono shimasu", meaning: "berbelanja"},
+            {japanese: "しょくじします", romaji: "shokuji shimasu", meaning: "makan"},
+            
+            // Kata Sifat
+            {japanese: "きれいな", romaji: "kirei na", meaning: "cantik"},
+            {japanese: "ハンサムな", romaji: "hansamu na", meaning: "tampan"},
+            {japanese: "しんせつな", romaji: "shinsetsu na", meaning: "baik hati"},
+            {japanese: "げんきな", romaji: "genki na", meaning: "sehat"},
+            {japanese: "ゆうめいな", romaji: "yuumei na", meaning: "terkenal"},
+            {japanese: "にぎやかな", romaji: "nigiyaka na", meaning: "ramai"},
+            {japanese: "しずかな", romaji: "shizuka na", meaning: "tenang"},
+            {japanese: "たのしい", romaji: "tanoshii", meaning: "menyenangkan"},
+            {japanese: "おおきい", romaji: "ookii", meaning: "besar"},
+            {japanese: "ちいさい", romaji: "chiisai", meaning: "kecil"},
+            {japanese: "ひまな", romaji: "hima na", meaning: "senggang"},
+            {japanese: "いそがしい", romaji: "isogashii", meaning: "sibuk"},
+            {japanese: "わかい", romaji: "wakai", meaning: "muda"},
+            {japanese: "としうえ", romaji: "toshiue", meaning: "lebih tua"},
+            {japanese: "たいせつな", romaji: "taisetsu na", meaning: "penting"},
+            {japanese: "ほしい", romaji: "hoshii", meaning: "ingin"},
+            {japanese: "あかるい", romaji: "akarui", meaning: "terang"},
+            {japanese: "くらい", romaji: "kurai", meaning: "gelap"},
+            {japanese: "ひろい", romaji: "hiroi", meaning: "luas"},
+            {japanese: "せまい", romaji: "semai", meaning: "sempit"},
+            {japanese: "あたらしい", romaji: "atarashii", meaning: "baru"},
+            {japanese: "ふるい", romaji: "furui", meaning: "lama"},
+            {japanese: "いい", romaji: "ii", meaning: "baik"},
+            {japanese: "わるい", romaji: "warui", meaning: "buruk"},
+            {japanese: "あつい", romaji: "atsui", meaning: "panas"},
+            {japanese: "さむい", romaji: "samui", meaning: "dingin"},
+            {japanese: "あつい", romaji: "atsui", meaning: "tebal"},
+            {japanese: "つめたい", romaji: "tsumetai", meaning: "dingin"},
+            {japanese: "やさしい", romaji: "yasashii", meaning: "mudah"},
+            {japanese: "むずかしい", romaji: "muzukashii", meaning: "sulit"},
+            {japanese: "べんりな", romaji: "benri na", meaning: "praktis"},
+            {japanese: "ふべんな", romaji: "fuben na", meaning: "tidak praktis"},
+            {japanese: "かんたんな", romaji: "kantan na", meaning: "mudah"},
+            {japanese: "ふくざつな", romaji: "fukuzatsu na", meaning: "rumit"},
+            {japanese: "せがたかい", romaji: "se ga takai", meaning: "tinggi"},
+            {japanese: "せがひくい", romaji: "se ga hikui", meaning: "pendek"},
+            {japanese: "あぶない", romaji: "abunai", meaning: "berbahaya"},
+            {japanese: "うれしい", romaji: "ureshii", meaning: "senang"},
+            {japanese: "かなしい", romaji: "kanashii", meaning: "sedih"},
+            {japanese: "さびしい", romaji: "sabishii", meaning: "kesepian"}
+        ];
+
+        let currentIndex = 0;
+        let isAnswered = false;
+
+        // DOM elements
+        const japaneseWordEl = document.getElementById('japanese-word');
+        const romajiEl = document.getElementById('romaji');
+        const answerInput = document.getElementById('answer-input');
+        const checkBtn = document.getElementById('check-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const feedbackEl = document.getElementById('feedback');
+        const currentEl = document.getElementById('current');
+        const totalEl = document.getElementById('total');
+
+        // Initialize
+        function init() {
+            totalEl.textContent = vocabulary.length;
+            showCard();
+            
+            // Event listeners
+            checkBtn.addEventListener('click', checkAnswer);
+            nextBtn.addEventListener('click', nextCard);
+            shuffleBtn.addEventListener('click', shuffleCards);
+            answerInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    if (!isAnswered) {
+                        checkAnswer();
+                    } else {
+                        nextCard();
+                    }
+                }
+            });
+        }
+
+        function showCard() {
+            const card = vocabulary[currentIndex];
+            japaneseWordEl.textContent = card.japanese;
+            romajiEl.textContent = card.romaji;
+            currentEl.textContent = currentIndex + 1;
+            
+            // Reset state
+            answerInput.value = '';
+            answerInput.focus();
+            feedbackEl.style.display = 'none';
+            checkBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'none';
+            isAnswered = false;
+        }
+
+        function checkAnswer() {
+            const userAnswer = answerInput.value.trim().toLowerCase();
+            const correctAnswer = vocabulary[currentIndex].meaning.toLowerCase();
+            
+            isAnswered = true;
+            
+            if (userAnswer === correctAnswer) {
+                showFeedback(true, `Benar! ${vocabulary[currentIndex].meaning}`);
+            } else {
+                showFeedback(false, `Salah. Jawaban yang benar: ${vocabulary[currentIndex].meaning}`);
+            }
+            
+            checkBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-block';
+            nextBtn.focus();
+        }
+
+        function showFeedback(isCorrect, message) {
+            feedbackEl.textContent = message;
+            feedbackEl.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+            feedbackEl.style.display = 'block';
+        }
+
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % vocabulary.length;
+            showCard();
+        }
+
+        function shuffleCards() {
+            for (let i = vocabulary.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [vocabulary[i], vocabulary[j]] = [vocabulary[j], vocabulary[i]];
+            }
+            currentIndex = 0;
+            showCard();
+        }
+
+        // Start the app
+        init();
+    </script>
+</body>
+</html>
